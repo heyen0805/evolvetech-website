@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於億泓 | 億泓科技有限公司</title>
+  <meta name="description" content="億泓科技成立於2011年，深耕台灣廣播媒體產業逾十年，提供廣播級影音傳輸與雲端分發解決方案。" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── STORY ── */
+    .story-section {
+      padding: 80px var(--pad-x);
+      border-bottom: 1px solid var(--border);
+    }
+    .story-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .story-text p { font-size: 16px; color: var(--gray); line-height: 1.9; margin-bottom: 20px; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-text strong { color: var(--ink2); font-weight: 600; }
+
+    .timeline { margin-top: 0; }
+    .tl-item {
+      display: flex; gap: 24px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-item:first-child { border-top: 1px solid var(--border); }
+    .tl-year { font-size: 13px; font-weight: 600; color: var(--ink); flex-shrink: 0; width: 48px; }
+    .tl-content strong { display: block; font-size: 14px; margin-bottom: 4px; }
+    .tl-content span  { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    /* ── MISSION ── */
+    .mission-strip {
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 64px var(--pad-x);
+    }
+    .mission-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .mission-card { background: var(--bg2); padding: 36px 32px; }
+    .mission-card-icon { font-size: 24px; margin-bottom: 14px; }
+    .mission-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+    .mission-card p  { font-size: 13px; color: var(--gray); line-height: 1.8; }
+
+    /* ── STRENGTHS ── */
+    #strengths { background: var(--white); }
+    .str-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .str-card {
+      background: var(--white); padding: 32px 28px 36px;
+      transition: background .2s;
+    }
+    .str-card:hover { background: var(--bg2); }
+    .str-card-num { font-size: 11px; letter-spacing: .12em; color: var(--lgray); margin-bottom: 16px; }
+    .str-card-icon { font-size: 26px; margin-bottom: 12px; }
+    .str-card h3 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+    .str-card p  { font-size: 13px; color: var(--gray); line-height: 1.8; }
+    .str-card-tag {
+      margin-top: 16px; display: inline-flex;
+      font-size: 10px; letter-spacing: .1em; color: var(--red);
+      border: 1px solid rgba(200,57,43,.2); padding: 3px 10px;
+    }
+
+    /* ── WHY US ── */
+    .why-section {
+      padding: 80px var(--pad-x);
+      border-top: 1px solid var(--border);
+    }
+    .why-inner { max-width: var(--max-w); margin: 0 auto; }
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
+    .compare-table th {
+      padding: 16px 20px; text-align: left;
+      font-size: 11px; letter-spacing: .1em; color: var(--gray);
+      border-bottom: 2px solid var(--border); font-weight: 400;
+    }
+    .compare-table th.ours {
+      background: var(--ink); color: rgba(245,244,241,.8);
+      border-bottom-color: var(--ink);
+    }
+    .compare-table td {
+      padding: 16px 20px; font-size: 14px;
+      border-bottom: 1px solid var(--border); vertical-align: middle;
+    }
+    .compare-table td.ours { background: rgba(200,57,43,.04); }
+    .compare-table td:first-child { color: var(--gray); font-size: 13px; }
+    .check { color: var(--red); font-weight: 700; }
+    .cross { color: var(--lgray); }
+
+    /* ── WORKFLOW ── */
+    #workflow {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px var(--pad-x);
+    }
+    .wf-inner { max-width: var(--max-w); margin: 0 auto; }
+    .wf-steps {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .wf-step {
+      background: var(--bg2); padding: 32px 24px 36px;
+      position: relative;
+    }
+    .wf-step-n {
+      font-size: 40px; font-weight: 200; color: var(--border);
+      letter-spacing: -.04em; line-height: 1; margin-bottom: 12px;
+    }
+    .wf-step-icon { font-size: 22px; margin-bottom: 12px; }
+    .wf-step h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+    .wf-step p  { font-size: 12px; color: var(--gray); line-height: 1.75; }
+    .wf-arrow {
+      position: absolute; right: -1px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px; background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--lgray); z-index: 1;
+    }
+    .wf-step:last-child .wf-arrow { display: none; }
+
+    /* ── CTA ── */
+    .about-cta {
+      padding: 80px var(--pad-x); text-align: center;
+      background: var(--ink);
+    }
+    .about-cta-inner { max-width: 560px; margin: 0 auto; }
+    .about-cta h2 {
+      font-size: clamp(26px,3.5vw,42px); font-weight: 200;
+      letter-spacing: -.02em; color: rgba(245,244,241,.9); margin-bottom: 16px;
+    }
+    .about-cta h2 strong { font-weight: 700; color: #fff; }
+    .about-cta p { font-size: 15px; color: rgba(245,244,241,.4); margin-bottom: 40px; line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .story-inner { grid-template-columns: 1fr; gap: 48px; }
+      .mission-inner { grid-template-columns: 1fr; }
+      .str-grid { grid-template-columns: repeat(2,1fr); }
+      .wf-steps { grid-template-columns: 1fr; }
+      .wf-arrow { display: none; }
+    }
+    @media (max-width: 600px) {
+      .str-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 12px; }
+      .compare-table td, .compare-table th { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">億</div>
+      <div class="nav-logo-text">
+        <div class="nm">億泓科技</div>
+        <div class="en">Evolve Tech</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁</a>
+      <a href="services.html">服務項目</a>
+      <a href="cases.html">成功案例</a>
+      <a href="about.html" class="active">關於億泓</a>
+      <a href="contact.html" class="nav-cta">立即諮詢</a>
+    </div>
+    <button class="nav-ham" id="ham" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html">首頁</a>
+  <a href="services.html">服務項目</a>
+  <a href="cases.html">成功案例</a>
+  <a href="about.html" class="active">關於億泓</a>
+  <a href="contact.html" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero-border">
+  <div class="page-hero">
+    <div class="ph-label fbi">ABOUT · 關於億泓</div>
+    <h1 class="fbi">深耕廣播媒體<br><strong>逾十年實力</strong></h1>
+    <p class="ph-desc fbi">億泓科技成立於 2011 年，以廣播工程為核心，持續擴展至雲端影音分發、OTT 平台建設及系統整合，服務台灣主要電視媒體、體育頻道及電信業者。</p>
+  </div>
+</div>
+
+<!-- ── COMPANY STORY ── -->
+<div class="story-section">
+  <div class="story-inner">
+    <div class="story-text">
+      <div class="sec-label fbi">COMPANY STORY</div>
+      <h2 class="sec-title fbi" style="margin-bottom:32px;">我們的<strong>故事</strong></h2>
+      <p class="fbi">億泓科技有限公司（Evolve Tech Co., Ltd.）成立於 2011 年，創辦人來自台灣廣播電視工程領域，深刻理解媒體業者在訊號傳輸、播出品質與成本效益之間的痛點，以「技術為媒體服務」的理念，打造了這家專注廣播級影音工程的技術公司。</p>
+      <p class="fbi">歷經十餘年的深耕，億泓從單純的廣播設備整合，逐步擴展至 <strong>CDN 雲端分發、海外直播工程、OTT 平台建設</strong>等領域，服務台灣超過 10 家主要媒體客戶，完成 50 件以上重大專案，累積了無可取代的實戰經驗與技術積累。</p>
+      <p class="fbi">我們深信：每一場直播背後，都是無數技術工作者的心血與堅持。億泓科技的使命，就是讓技術成為媒體從業者最強大、最可靠的後盾。</p>
+    </div>
+    <div>
+      <div class="sec-label fbi">MILESTONES</div>
+      <h2 class="sec-title fbi" style="margin-bottom:32px;">發展<strong>里程碑</strong></h2>
+      <div class="timeline">
+        <div class="tl-item fbi">
+          <div class="tl-year">2011</div>
+          <div class="tl-content">
+            <strong>億泓科技成立</strong>
+            <span>以廣播設備整合與工程服務為核心業務，開始服務台灣媒體產業。</span>
+          </div>
+        </div>
+        <div class="tl-item fbi">
+          <div class="tl-year">2014</div>
+          <div class="tl-content">
+            <strong>導入 CDN 雲端分發服務</strong>
+            <span>與 Amazon CloudFront 建立合作，提供媒體客戶全球 CDN 分發能力。</span>
+          </div>
+        </div>
+        <div class="tl-item fbi">
+          <div class="tl-year">2017</div>
+          <div class="tl-content">
+            <strong>自研 HLS 播放器完成</strong>
+            <span>突破瀏覽器 Flash 限制，推出跨平台 HTML5 串流播放解決方案。</span>
+          </div>
+        </div>
+        <div class="tl-item fbi">
+          <div class="tl-year">2019</div>
+          <div class="tl-content">
+            <strong>首次承接歐冠海外直播</strong>
+            <span>成功完成歐洲冠軍聯賽排球賽事海外直播任務，開創國際業務里程碑。</span>
+          </div>
+        </div>
+        <div class="tl-item fbi">
+          <div class="tl-year">2022</div>
+          <div class="tl-content">
+            <strong>SRT 傳輸技術全面升級</strong>
+            <span>導入 SRT 低延遲協議與 5G 備援機制，直播傳輸穩定性再提升。</span>
+          </div>
+        </div>
+        <div class="tl-item fbi">
+          <div class="tl-year">2024</div>
+          <div class="tl-content">
+            <strong>服務客戶突破 10 家主要媒體</strong>
+            <span>完成 50+ 重大專案，成為台灣廣播媒體首選技術合作夥伴。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MISSION CARDS ── -->
+<div class="mission-strip">
+  <div style="max-width:var(--max-w); margin:0 auto; margin-bottom:32px;">
+    <div class="sec-label fbi">OUR VALUES</div>
+    <h2 class="sec-title fbi">核心<strong>價值理念</strong></h2>
+  </div>
+  <div class="mission-inner">
+    <div class="mission-card fbi">
+      <div class="mission-card-icon">🎯</div>
+      <h3>技術精準</h3>
+      <p>每一個位元都不能有誤差。我們對廣播技術的要求，從不妥協於「夠用」，而是追求真正的「廣播級」標準，確保每一幀畫面都完美呈現。</p>
+    </div>
+    <div class="mission-card fbi">
+      <div class="mission-card-icon">🤝</div>
+      <h3>長期夥伴</h3>
+      <p>我們不只是技術供應商，更是媒體業者的長期策略夥伴。了解客戶的播出節奏與業務需求，在關鍵時刻提供最快速、最專業的技術支援。</p>
+    </div>
+    <div class="mission-card fbi">
+      <div class="mission-card-icon">🔄</div>
+      <h3>持續進化</h3>
+      <p>廣播技術日新月異，從衛星到 IP、從 SD 到 4K、從有線到 5G，億泓持續追蹤最新技術趨勢，主動引進最適合客戶的解決方案。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── STRENGTHS ── -->
+<section id="strengths" style="padding: 80px 0; border-top: 1px solid var(--border);">
+  <div class="sec" style="padding-top:0; padding-bottom:0;">
+    <div class="sec-hd">
+      <div class="sec-label fbi">WHY CHOOSE US</div>
+      <h2 class="sec-title fbi">八大<strong>核心優勢</strong></h2>
+      <p class="sec-desc fbi">以廣播級技術標準設計，每一項優勢都是客戶選擇億泓的關鍵理由。</p>
+    </div>
+    <div class="str-grid">
+      <div class="str-card fbi">
+        <div class="str-card-num">01</div>
+        <div class="str-card-icon">📡</div>
+        <h3>訊號絕不中斷</h3>
+        <p>4G/5G 雙網備援與 SRT 傳輸，單線中斷自動切換，不掉格、不延遲。</p>
+        <span class="str-card-tag">ZERO DOWNTIME</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">🌐</div>
+        <div class="str-card-num">02</div>
+        <h3>全球 CDN 秒達</h3>
+        <p>CloudFront 81+ 節點智慧路由，無論台灣或海外均享低延遲體驗。</p>
+        <span class="str-card-tag">GLOBAL DELIVERY</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">☁️</div>
+        <div class="str-card-num">03</div>
+        <h3>雲端高可用架構</h3>
+        <p>AWS RDS Multi-AZ 異地備援，Auto Scaling 自動因應瞬間爆量。</p>
+        <span class="str-card-tag">99.9% UPTIME</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">🖥️</div>
+        <div class="str-card-num">04</div>
+        <h3>獨家跨平台播放</h3>
+        <p>自研無 Flash HLS 播放器，突破瀏覽器限制，跨裝置一致體驗。</p>
+        <span class="str-card-tag">PROPRIETARY</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">📊</div>
+        <div class="str-card-num">05</div>
+        <h3>即時數據透明化</h3>
+        <p>每小時批次解析全 CDN Log，流量分佈、並發峰值一目了然。</p>
+        <span class="str-card-tag">REAL-TIME</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">🔌</div>
+        <div class="str-card-num">06</div>
+        <h3>端到端工程整合</h3>
+        <p>從現場光纖佈線、OB 車採集，到雲端分發與後台系統，全程一站式服務。</p>
+        <span class="str-card-tag">END-TO-END</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">🛡️</div>
+        <div class="str-card-num">07</div>
+        <h3>備援風險歸零</h3>
+        <p>主線切換時間小於 0.1 秒，觀眾完全無感知。AWS Multi-AZ 後端永不宕機。</p>
+        <span class="str-card-tag">AUTO-FAILOVER</span>
+      </div>
+      <div class="str-card fbi">
+        <div class="str-card-icon">💰</div>
+        <div class="str-card-num">08</div>
+        <h3>降低 60% 傳輸成本</h3>
+        <p>以公網 CDN 取代衛星傳輸，一鍵擴展全球分發，預算集中用在播出品質。</p>
+        <span class="str-card-tag">COST EFFICIENT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US COMPARISON ── -->
+<div class="why-section">
+  <div class="why-inner">
+    <div class="sec-label fbi">COMPARISON</div>
+    <h2 class="sec-title fbi">億泓科技 vs <strong>一般廠商</strong></h2>
+    <p class="sec-desc fbi">從技術能力到服務深度，感受億泓科技的全面差異。</p>
+    <table class="compare-table fbi">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th class="ours">億泓科技</th>
+          <th>一般廠商</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>傳輸協議</td>
+          <td class="ours"><span class="check">✓</span> SRT + 4G/5G 備援</td>
+          <td><span class="cross">—</span> 傳統 RTMP 單線</td>
+        </tr>
+        <tr>
+          <td>主線切換時間</td>
+          <td class="ours"><span class="check">✓</span> &lt; 0.1 秒</td>
+          <td><span class="cross">—</span> 數秒至數十秒</td>
+        </tr>
+        <tr>
+          <td>CDN 全球覆蓋</td>
+          <td class="ours"><span class="check">✓</span> 81+ 邊緣節點</td>
+          <td><span class="cross">—</span> 有限節點</td>
+        </tr>
+        <tr>
+          <td>自研播放器</td>
+          <td class="ours"><span class="check">✓</span> 跨平台 HLS</td>
+          <td><span class="cross">—</span> 第三方套件</td>
+        </tr>
+        <tr>
+          <td>端到端整合能力</td>
+          <td class="ours"><span class="check">✓</span> 現場 + 雲端全包</td>
+          <td><span class="cross">—</span> 部分環節</td>
+        </tr>
+        <tr>
+          <td>7×24 技術支援</td>
+          <td class="ours"><span class="check">✓</span> 全年無休</td>
+          <td><span class="cross">—</span> 工作時間</td>
+        </tr>
+        <tr>
+          <td>傳輸成本</td>
+          <td class="ours"><span class="check">✓</span> 較衛星降低 60%</td>
+          <td><span class="cross">—</span> 高額衛星費用</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── WORKFLOW ── -->
+<section id="workflow">
+  <div class="wf-inner">
+    <div class="sec-label fbi">HOW WE WORK</div>
+    <h2 class="sec-title fbi">五步驟<strong>服務流程</strong></h2>
+    <p class="sec-desc fbi">從初次接觸到長期維運，億泓科技以嚴謹的工程流程，確保每個環節都符合廣播級標準。</p>
+    <div class="wf-steps">
+      <div class="wf-step fbi">
+        <div class="wf-step-n">01</div>
+        <div class="wf-step-icon">🔍</div>
+        <h3>需求診斷</h3>
+        <p>深入了解客戶播出需求、場地條件與技術現況，進行完整的需求訪談與現況評估。</p>
+        <div class="wf-arrow">›</div>
+      </div>
+      <div class="wf-step fbi">
+        <div class="wf-step-n">02</div>
+        <div class="wf-step-icon">📐</div>
+        <h3>方案設計</h3>
+        <p>依據診斷結果，設計最適切的技術架構與工程方案，提供詳細規格書與報價。</p>
+        <div class="wf-arrow">›</div>
+      </div>
+      <div class="wf-step fbi">
+        <div class="wf-step-n">03</div>
+        <div class="wf-step-icon">🔧</div>
+        <h3>工程部署</h3>
+        <p>專業工程團隊執行設備安裝、系統整合、光纖佈線及雲端環境建置，確保如期完工。</p>
+        <div class="wf-arrow">›</div>
+      </div>
+      <div class="wf-step fbi">
+        <div class="wf-step-n">04</div>
+        <div class="wf-step-icon">✅</div>
+        <h3>測試驗收</h3>
+        <p>執行完整的功能測試、壓力測試及備援切換演練，提供驗收報告並確認符合廣播規格。</p>
+        <div class="wf-arrow">›</div>
+      </div>
+      <div class="wf-step fbi">
+        <div class="wf-step-n">05</div>
+        <div class="wf-step-icon">🔄</div>
+        <h3>持續維運</h3>
+        <p>7×24 技術支援、定期系統巡檢、性能優化，以及主動監控告警，保障長期穩定運行。</p>
+        <div class="wf-arrow">›</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="about-cta">
+  <div class="about-cta-inner">
+    <h2 class="fbi">成為億泓的<strong>合作夥伴</strong></h2>
+    <p class="fbi">讓我們的技術團隊為您的媒體業務提供最可靠的廣播影音工程支援。</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="fbi">
+      <a href="contact.html" class="btn btn-red">立即預約諮詢</a>
+      <a href="cases.html" class="btn btn-ghost">查看成功案例</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo-icon">億</div>
+        <div class="f-logo-name">億泓科技有限公司</div>
+        <div class="f-logo-desc">Evolve Tech Co., Ltd.<br>廣播級影音傳輸與雲端分發解決方案<br>深耕台灣媒體產業逾十年</div>
+      </div>
+      <div class="f-col">
+        <h4>服務項目</h4>
+        <a href="services.html#cdn">CDN 傳輸服務</a>
+        <a href="services.html#live">海外直播工程</a>
+        <a href="services.html#cloud">雲端影音平台</a>
+        <a href="services.html#fiber">光纖佈線工程</a>
+        <a href="services.html#equip">設備租賃</a>
+        <a href="services.html#si">系統整合顧問</a>
+      </div>
+      <div class="f-col">
+        <h4>關於我們</h4>
+        <a href="about.html">公司介紹</a>
+        <a href="#strengths">核心優勢</a>
+        <a href="#workflow">服務流程</a>
+        <a href="cases.html">成功案例</a>
+      </div>
+      <div class="f-col">
+        <h4>聯絡資訊</h4>
+        <a href="contact.html">聯絡我們</a>
+        <a href="mailto:info@evolvetech.com.tw">info@evolvetech.com.tw</a>
+        <a href="tel:+886227xxxxxx">+886-2-27XX-XXXX</a>
+        <a href="#">台北市信義區XX路X號X樓</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 億泓科技有限公司 Evolve Tech Co., Ltd. All rights reserved.</span>
+      <span>統一編號：XXXXXXXX</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const sib = el.closest('.str-grid, .wf-steps, .mission-inner, .timeline');
+      if (sib) {
+        const idx = Array.from(sib.children).indexOf(el);
+        el.style.animationDelay = (idx * 0.06) + 's';
+      }
+      el.classList.add('go');
+      io.unobserve(el);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fbi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

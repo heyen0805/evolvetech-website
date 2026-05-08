@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>成功案例 | 億泓科技有限公司</title>
+  <meta name="description" content="億泓科技服務案例：歐冠排球海外直播、公共電視廣播設備整合、OTT 串流優化，十年廣播工程實績。" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FEATURED CASE ── */
+    .featured-case {
+      background: var(--ink); color: rgba(245,244,241,.85);
+      padding: 80px var(--pad-x);
+    }
+    .fc-inner { max-width: var(--max-w); margin: 0 auto; }
+    .fc-tag {
+      font-size: 10px; letter-spacing: .2em; color: var(--red);
+      margin-bottom: 12px;
+    }
+    .fc-label {
+      font-size: 11px; letter-spacing: .15em; color: rgba(245,244,241,.3);
+      margin-bottom: 32px; display: flex; align-items: center; gap: 16px;
+    }
+    .fc-label::after { content: ''; flex: 1; height: 1px; background: rgba(245,244,241,.1); }
+    .fc-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+    .fc-title {
+      font-size: clamp(32px, 5vw, 56px); font-weight: 200;
+      letter-spacing: -.025em; line-height: 1.1;
+      color: rgba(245,244,241,.95); margin-bottom: 24px;
+    }
+    .fc-title strong { font-weight: 700; color: #fff; }
+    .fc-desc {
+      font-size: 15px; color: rgba(245,244,241,.55); line-height: 1.85;
+      margin-bottom: 36px;
+    }
+    .fc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+    .fc-tag-item {
+      font-size: 11px; letter-spacing: .08em; padding: 5px 14px;
+      border: 1px solid rgba(245,244,241,.15); color: rgba(245,244,241,.5);
+    }
+    .fc-result {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: rgba(245,244,241,.08); margin-top: 16px;
+    }
+    .fc-result-item {
+      background: var(--ink); padding: 24px 20px;
+    }
+    .fc-result-num {
+      font-size: 36px; font-weight: 200; letter-spacing: -.03em;
+      color: #fff; line-height: 1;
+    }
+    .fc-result-num em { font-size: .5em; font-style: normal; }
+    .fc-result-label { font-size: 12px; color: rgba(245,244,241,.4); margin-top: 6px; }
+
+    .fc-detail { padding-top: 8px; }
+    .fc-detail-row {
+      display: flex; gap: 16px; padding: 18px 0;
+      border-bottom: 1px solid rgba(245,244,241,.08); font-size: 13px;
+    }
+    .fc-detail-row:first-child { border-top: 1px solid rgba(245,244,241,.08); }
+    .fc-dk { color: rgba(245,244,241,.3); flex-shrink: 0; width: 80px; }
+    .fc-dv { color: rgba(245,244,241,.7); }
+
+    /* ── CASE GRID ── */
+    .case-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .case-card {
+      background: var(--bg); padding: 40px 32px 44px;
+      display: flex; flex-direction: column;
+      transition: background .2s;
+    }
+    .case-card:hover { background: var(--white); }
+    .case-card-num {
+      font-size: 10px; letter-spacing: .15em; color: var(--lgray);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .case-card-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .case-card-icon { font-size: 28px; margin-bottom: 16px; }
+    .case-client {
+      font-size: 11px; letter-spacing: .1em; color: var(--red); margin-bottom: 8px;
+    }
+    .case-card h3 { font-size: 20px; font-weight: 400; margin-bottom: 14px; line-height: 1.3; }
+    .case-card p { font-size: 13px; color: var(--gray); line-height: 1.8; flex: 1; }
+    .case-results {
+      margin-top: 28px; display: flex; flex-direction: column; gap: 0;
+      border: 1px solid var(--border);
+    }
+    .case-res-row {
+      display: flex; justify-content: space-between; padding: 10px 16px;
+      font-size: 12px; border-bottom: 1px solid var(--border);
+    }
+    .case-res-row:last-child { border-bottom: none; }
+    .case-res-row .rk { color: var(--gray); }
+    .case-res-row .rv { font-weight: 600; color: var(--ink); }
+
+    /* ── CATEGORIES ── */
+    .cat-filter {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .cat-btn {
+      font-size: 12px; letter-spacing: .08em; padding: 7px 18px;
+      border: 1px solid var(--border); color: var(--gray);
+      background: transparent; cursor: pointer; transition: all .2s;
+    }
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--ink); color: var(--bg); border-color: var(--ink);
+    }
+
+    /* ── STATS ROW ── */
+    .cases-stats {
+      background: var(--white);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    .cs-item {
+      padding: 36px 32px; border-right: 1px solid var(--border); text-align: center;
+    }
+    .cs-item:last-child { border-right: none; }
+    .cs-num { font-size: 40px; font-weight: 200; letter-spacing: -.03em; color: var(--ink); }
+    .cs-num em { font-style: normal; font-size: .55em; }
+    .cs-label { font-size: 12px; color: var(--gray); margin-top: 6px; }
+
+    /* ── CTA ── */
+    .cases-cta {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 80px var(--pad-x); text-align: center;
+    }
+    .cases-cta-inner { max-width: 560px; margin: 0 auto; }
+    .cases-cta h2 {
+      font-size: clamp(26px,3.5vw,40px); font-weight: 200;
+      letter-spacing: -.02em; margin-bottom: 16px;
+    }
+    .cases-cta h2 strong { font-weight: 700; }
+    .cases-cta p { font-size: 15px; color: var(--gray); margin-bottom: 36px; line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .fc-grid { grid-template-columns: 1fr; gap: 40px; }
+      .case-grid { grid-template-columns: 1fr; }
+      .cases-stats { grid-template-columns: repeat(2,1fr); }
+      .cs-item:nth-child(2) { border-right: none; }
+      .cs-item:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+      .cs-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .fc-result { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">億</div>
+      <div class="nav-logo-text">
+        <div class="nm">億泓科技</div>
+        <div class="en">Evolve Tech</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁</a>
+      <a href="services.html">服務項目</a>
+      <a href="cases.html" class="active">成功案例</a>
+      <a href="about.html">關於億泓</a>
+      <a href="contact.html" class="nav-cta">立即諮詢</a>
+    </div>
+    <button class="nav-ham" id="ham" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html">首頁</a>
+  <a href="services.html">服務項目</a>
+  <a href="cases.html" class="active">成功案例</a>
+  <a href="about.html">關於億泓</a>
+  <a href="contact.html" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero-border">
+  <div class="page-hero">
+    <div class="ph-label fbi">CASES · 成功案例</div>
+    <h1 class="fbi">十年實績<br><strong>真實案例</strong></h1>
+    <p class="ph-desc fbi">從國際大型賽事的海外直播工程到國內電視台的廣播系統整合，億泓科技持續以技術實力創造媒體業者信賴的播出紀錄。</p>
+  </div>
+</div>
+
+<!-- ── STATS BAND ── -->
+<div class="cases-stats">
+  <div class="cs-item fbi">
+    <div class="cs-num"><span data-target="50">0</span><em>+</em></div>
+    <div class="cs-label">完成專案數</div>
+  </div>
+  <div class="cs-item fbi">
+    <div class="cs-num"><span data-target="3">0</span><em>年</em></div>
+    <div class="cs-label">歐冠連續直播</div>
+  </div>
+  <div class="cs-item fbi">
+    <div class="cs-num">0</div>
+    <div class="cs-label">重大播出中斷事件</div>
+  </div>
+  <div class="cs-item fbi">
+    <div class="cs-num"><span data-target="10">0</span><em>+</em></div>
+    <div class="cs-label">合作媒體客戶</div>
+  </div>
+</div>
+
+<!-- ── FEATURED CASE ── -->
+<div class="featured-case">
+  <div class="fc-inner">
+    <div class="fc-tag fbi">FEATURED CASE</div>
+    <div class="fc-label fbi">CASE / 001 · 海外直播工程</div>
+    <div class="fc-grid">
+      <div>
+        <h2 class="fc-title fbi">歐冠排球<br><strong>海外直播傳輸</strong></h2>
+        <p class="fc-desc fbi">連續三年承接歐洲冠軍聯賽排球賽事的海外 LIVE 訊號接收、設備租賃與雲端回傳服務，確保每場賽事零掉訊播出。從現場部署、OB 車架設到雲端分發，全程一站式服務，深獲客戶信賴，成為賽事期間唯一指定傳輸合作夥伴。</p>
+        <div class="fc-tags fbi">
+          <span class="fc-tag-item">SRT 傳輸</span>
+          <span class="fc-tag-item">海外部署</span>
+          <span class="fc-tag-item">設備租賃</span>
+          <span class="fc-tag-item">OB 車整合</span>
+          <span class="fc-tag-item">CDN 分發</span>
+        </div>
+        <div class="fc-result fbi">
+          <div class="fc-result-item">
+            <div class="fc-result-num">3<em>年</em></div>
+            <div class="fc-result-label">連續承接</div>
+          </div>
+          <div class="fc-result-item">
+            <div class="fc-result-num">0</div>
+            <div class="fc-result-label">中斷事件</div>
+          </div>
+          <div class="fc-result-item">
+            <div class="fc-result-num">100<em>%</em></div>
+            <div class="fc-result-label">客戶續約率</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-detail fbi">
+        <div class="fc-detail-row"><span class="fc-dk">客戶</span><span class="fc-dv">博斯體育台</span></div>
+        <div class="fc-detail-row"><span class="fc-dk">賽事</span><span class="fc-dv">歐洲冠軍聯賽排球 (CEV Champions League)</span></div>
+        <div class="fc-detail-row"><span class="fc-dk">服務</span><span class="fc-dv">海外直播工程 · 設備租賃 · CDN 傳輸</span></div>
+        <div class="fc-detail-row"><span class="fc-dk">規模</span><span class="fc-dv">每賽季 20+ 場次</span></div>
+        <div class="fc-detail-row"><span class="fc-dk">地點</span><span class="fc-dv">義大利、波蘭、土耳其等歐洲各城市</span></div>
+        <div class="fc-detail-row"><span class="fc-dk">成果</span><span class="fc-dv">連續 3 年零中斷，成為指定合作夥伴</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CASE GRID ── -->
+<section style="padding: 80px 0; border-bottom: 1px solid var(--border);">
+  <div class="sec" style="padding-top:0; padding-bottom:0;">
+    <div class="sec-hd">
+      <div class="sec-label fbi">MORE CASES · 更多案例</div>
+      <h2 class="sec-title fbi">各產業<strong>服務實績</strong></h2>
+    </div>
+    <div class="case-grid">
+
+      <!-- Case 002 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 002</div>
+        <div class="case-card-icon">📺</div>
+        <div class="case-client">公共電視台 PTS</div>
+        <h3>廣播設備整合與系統升級</h3>
+        <p>主導公共電視廣播設備全面整合，涵蓋廣播級編碼器汰換、訊號路由矩陣升級、串流直播機建置及播出監控系統導入，全程無縫切換，不影響正常播出作業。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">系統整合顧問</span></div>
+          <div class="case-res-row"><span class="rk">整合設備數</span><span class="rv">30+ 台</span></div>
+          <div class="case-res-row"><span class="rk">停播時間</span><span class="rv">0 分鐘</span></div>
+        </div>
+      </div>
+
+      <!-- Case 003 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 003</div>
+        <div class="case-card-icon">📶</div>
+        <div class="case-client">台灣大哥大 TWM</div>
+        <h3>OTT 串流平台 CDN 優化</h3>
+        <p>導入 Amazon CloudFront 智慧分發架構，取代原有衛星頻寬傳輸，大幅降低 OTT 平台的傳輸成本，同時提升使用者觀看體驗，緩衝率下降、畫質穩定性顯著改善。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">CDN 傳輸 + 雲端平台</span></div>
+          <div class="case-res-row"><span class="rk">成本降低</span><span class="rv">60%</span></div>
+          <div class="case-res-row"><span class="rk">緩衝率改善</span><span class="rv">降低 45%</span></div>
+        </div>
+      </div>
+
+      <!-- Case 004 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 004</div>
+        <div class="case-card-icon">🏅</div>
+        <div class="case-client">博斯體育 BSPORTS</div>
+        <h3>海外賽事 SRT 直播傳輸</h3>
+        <p>承接多場歐洲體育賽事海外直播任務，採用 SRT 協議搭配 4G/5G 備援機制，克服賽事場館網路品質不穩等挑戰，確保高品質訊號穩定回傳台灣，現場技術工程師全程駐守。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">海外直播工程</span></div>
+          <div class="case-res-row"><span class="rk">場次數量</span><span class="rv">40+ 場</span></div>
+          <div class="case-res-row"><span class="rk">傳輸穩定率</span><span class="rv">99.98%</span></div>
+        </div>
+      </div>
+
+      <!-- Case 005 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 005</div>
+        <div class="case-card-icon">📡</div>
+        <div class="case-client">Eleven Sports</div>
+        <h3>多場館光纖佈線工程</h3>
+        <p>協助 Eleven Sports 完成台灣多處合作場館的廣播級光纖佈線工程，包含場地勘查、線路規劃、工程施作及驗收測試，建立穩定的現場訊號採集基礎架構，支援持續性直播作業。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">光纖佈線工程</span></div>
+          <div class="case-res-row"><span class="rk">施工場館</span><span class="rv">5 處</span></div>
+          <div class="case-res-row"><span class="rk">光損測試</span><span class="rv">全數通過</span></div>
+        </div>
+      </div>
+
+      <!-- Case 006 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 006</div>
+        <div class="case-card-icon">🎬</div>
+        <div class="case-client">中嘉網路</div>
+        <h3>有線電視 IP 化系統整合</h3>
+        <p>協助中嘉網路推動有線電視播出系統 IP 化轉型，整合多家廠商設備，制定系統架構規範，進行壓力測試及操作培訓，協助業者順利完成播出系統現代化升級。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">系統整合顧問</span></div>
+          <div class="case-res-row"><span class="rk">整合廠商</span><span class="rv">6 家</span></div>
+          <div class="case-res-row"><span class="rk">專案期程</span><span class="rv">8 個月</span></div>
+        </div>
+      </div>
+
+      <!-- Case 007 -->
+      <div class="case-card fbi">
+        <div class="case-card-num">CASE / 007</div>
+        <div class="case-card-icon">🏆</div>
+        <div class="case-client">愛爾達體育 ELTA</div>
+        <h3>大型賽事設備租賃支援</h3>
+        <p>提供愛爾達體育大型賽事轉播期間的廣播設備租賃服務，包含高階編碼器、訊號路由設備及監控設備，並配置專業技術工程師現場駐守，確保轉播技術萬無一失。</p>
+        <div class="case-results">
+          <div class="case-res-row"><span class="rk">服務類型</span><span class="rv">設備租賃服務</span></div>
+          <div class="case-res-row"><span class="rk">出租設備</span><span class="rv">15+ 台套</span></div>
+          <div class="case-res-row"><span class="rk">技術支援</span><span class="rv">全場次駐場</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cases-cta">
+  <div class="cases-cta-inner">
+    <h2 class="fbi">下一個成功案例<br><strong>就是您的專案</strong></h2>
+    <p class="fbi">告訴我們您的播出需求，億泓科技的工程團隊將提供最專業的技術評估與解決方案。</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="fbi">
+      <a href="contact.html" class="btn btn-solid">立即聯絡我們 →</a>
+      <a href="services.html" class="btn">查看服務項目</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo-icon">億</div>
+        <div class="f-logo-name">億泓科技有限公司</div>
+        <div class="f-logo-desc">Evolve Tech Co., Ltd.<br>廣播級影音傳輸與雲端分發解決方案<br>深耕台灣媒體產業逾十年</div>
+      </div>
+      <div class="f-col">
+        <h4>服務項目</h4>
+        <a href="services.html#cdn">CDN 傳輸服務</a>
+        <a href="services.html#live">海外直播工程</a>
+        <a href="services.html#cloud">雲端影音平台</a>
+        <a href="services.html#fiber">光纖佈線工程</a>
+        <a href="services.html#equip">設備租賃</a>
+        <a href="services.html#si">系統整合顧問</a>
+      </div>
+      <div class="f-col">
+        <h4>關於我們</h4>
+        <a href="about.html">公司介紹</a>
+        <a href="about.html#strengths">核心優勢</a>
+        <a href="about.html#workflow">服務流程</a>
+        <a href="cases.html">成功案例</a>
+      </div>
+      <div class="f-col">
+        <h4>聯絡資訊</h4>
+        <a href="contact.html">聯絡我們</a>
+        <a href="mailto:info@evolvetech.com.tw">info@evolvetech.com.tw</a>
+        <a href="tel:+886227xxxxxx">+886-2-27XX-XXXX</a>
+        <a href="#">台北市信義區XX路X號X樓</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 億泓科技有限公司 Evolve Tech Co., Ltd. All rights reserved.</span>
+      <span>統一編號：XXXXXXXX</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('go');
+      const num = e.target.querySelector('[data-target]');
+      if (num) {
+        const target = +num.dataset.target;
+        const start = performance.now();
+        const dur = 1000;
+        function step(now) {
+          const p = Math.min((now - start) / dur, 1);
+          num.textContent = Math.round(p * target);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fbi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

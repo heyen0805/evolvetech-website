@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>服務項目 | 億泓科技有限公司</title>
+  <meta name="description" content="億泓科技提供廣播級 CDN 傳輸、海外直播工程、雲端影音平台、光纖佈線、設備租賃及系統整合顧問等完整廣播影音服務。" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── SERVICE DETAIL ── */
+    .svc-section {
+      border-top: 1px solid var(--border);
+      padding: 80px var(--pad-x);
+    }
+    .svc-section:nth-child(even) { background: var(--white); }
+    .svc-section-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .svc-section:nth-child(even) .svc-section-inner { direction: rtl; }
+    .svc-section:nth-child(even) .svc-section-inner > * { direction: ltr; }
+
+    .svc-s-label {
+      font-size: 11px; letter-spacing: .18em; color: var(--gray);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .svc-s-label::before { content: ''; width: 24px; height: 1px; background: var(--lgray); }
+    .svc-s-num { font-size: 72px; font-weight: 200; color: var(--border); line-height: 1; margin-bottom: 4px; letter-spacing: -.04em; }
+    .svc-s-icon { font-size: 36px; margin-bottom: 16px; }
+    .svc-s-title {
+      font-size: clamp(26px, 3.5vw, 38px); font-weight: 200;
+      letter-spacing: -.02em; margin-bottom: 16px; line-height: 1.15;
+    }
+    .svc-s-title strong { font-weight: 700; }
+    .svc-s-desc { font-size: 15px; color: var(--gray); line-height: 1.85; margin-bottom: 36px; }
+
+    .feat-list { list-style: none; }
+    .feat-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .feat-list li:first-child { border-top: 1px solid var(--border); }
+    .feat-list li::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--red); flex-shrink: 0; margin-top: 7px;
+    }
+    .feat-list li span { color: var(--gray); font-size: 13px; display: block; margin-top: 2px; }
+
+    /* spec panel */
+    .spec-panel {
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 36px 32px;
+    }
+    .spec-panel h4 {
+      font-size: 11px; letter-spacing: .15em; color: var(--gray);
+      margin-bottom: 24px; text-transform: uppercase;
+    }
+    .spec-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 13px; gap: 16px;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row .sk { color: var(--gray); flex-shrink: 0; }
+    .spec-row .sv { text-align: right; font-weight: 500; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .tag {
+      font-size: 11px; letter-spacing: .08em; padding: 5px 12px;
+      border: 1px solid var(--border); color: var(--gray); background: var(--white);
+    }
+
+    /* ── CTA BAND ── */
+    .svc-cta {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 80px var(--pad-x); text-align: center;
+    }
+    .svc-cta-inner { max-width: 600px; margin: 0 auto; }
+    .svc-cta h2 {
+      font-size: clamp(26px, 3.5vw, 40px); font-weight: 200;
+      letter-spacing: -.02em; margin-bottom: 16px;
+    }
+    .svc-cta h2 strong { font-weight: 700; }
+    .svc-cta p { font-size: 15px; color: var(--gray); margin-bottom: 36px; line-height: 1.8; }
+
+    /* ── NAV ANCHOR MENU ── */
+    .svc-nav {
+      position: sticky; top: var(--nav-h); z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .svc-nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x);
+      display: flex; gap: 0;
+    }
+    .svc-nav-inner a {
+      font-size: 12px; letter-spacing: .06em; color: var(--gray);
+      padding: 16px 20px; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .svc-nav-inner a:hover { color: var(--ink); border-color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .svc-section-inner { grid-template-columns: 1fr; gap: 40px; }
+      .svc-section:nth-child(even) .svc-section-inner { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">億</div>
+      <div class="nav-logo-text">
+        <div class="nm">億泓科技</div>
+        <div class="en">Evolve Tech</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">首頁</a>
+      <a href="services.html" class="active">服務項目</a>
+      <a href="cases.html">成功案例</a>
+      <a href="about.html">關於億泓</a>
+      <a href="contact.html" class="nav-cta">立即諮詢</a>
+    </div>
+    <button class="nav-ham" id="ham" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html">首頁</a>
+  <a href="services.html" class="active">服務項目</a>
+  <a href="cases.html">成功案例</a>
+  <a href="about.html">關於億泓</a>
+  <a href="contact.html" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero-border">
+  <div class="page-hero">
+    <div class="ph-label fbi">SERVICES · 服務項目</div>
+    <h1 class="fbi">全方位廣播<br><strong>技術服務</strong></h1>
+    <p class="ph-desc fbi">從訊號採集、現場傳輸、雲端分發到系統整合，億泓科技提供媒體產業完整的廣播工程一站式服務，每一環節均符合廣播級技術標準。</p>
+  </div>
+</div>
+
+<!-- ── SERVICE ANCHOR NAV ── -->
+<div class="svc-nav">
+  <div class="svc-nav-inner">
+    <a href="#cdn">CDN 傳輸</a>
+    <a href="#live">海外直播</a>
+    <a href="#cloud">雲端平台</a>
+    <a href="#fiber">光纖佈線</a>
+    <a href="#equip">設備租賃</a>
+    <a href="#si">系統整合</a>
+  </div>
+</div>
+
+<!-- ── 01 CDN ── -->
+<div class="svc-section" id="cdn">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">01 · CDN DELIVERY</div>
+      <div class="svc-s-num fbi">01</div>
+      <div class="svc-s-icon fbi">🌐</div>
+      <h2 class="svc-s-title fbi">廣播級<br><strong>CDN 傳輸服務</strong></h2>
+      <p class="svc-s-desc fbi">以 Amazon CloudFront 為核心基礎建設，透過遍布全球 81 個以上的邊緣節點進行智慧路由分發，無論觀眾身處台灣或海外，均可享有穩定低延遲的串流體驗。支援 HLS、DASH、RTMP 等主流格式，可靈活對應各類播出需求。</p>
+      <ul class="feat-list">
+        <li><div><strong>全球 81+ 邊緣節點覆蓋</strong><span>Amazon CloudFront 智慧路由，自動選擇最佳傳輸路徑</span></div></li>
+        <li><div><strong>多協議格式支援</strong><span>HLS、DASH、RTMP、SRT，對應直播與 VOD 全場景</span></div></li>
+        <li><div><strong>即時流量監控</strong><span>每小時批次解析 CDN Log，並發峰值與地域分佈一目了然</span></div></li>
+        <li><div><strong>彈性頻寬計費</strong><span>按實際用量計費，無需預付龐大衛星頻寬費用</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">Amazon CloudFront</span>
+        <span class="tag">HLS / DASH</span>
+        <span class="tag">RTMP / SRT</span>
+        <span class="tag">即時監控</span>
+        <span class="tag">彈性計費</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>技術規格</h4>
+        <div class="spec-row"><span class="sk">CDN 供應商</span><span class="sv">Amazon CloudFront</span></div>
+        <div class="spec-row"><span class="sk">全球節點數</span><span class="sv">81+ 邊緣位置</span></div>
+        <div class="spec-row"><span class="sk">支援協議</span><span class="sv">HLS · DASH · RTMP · SRT</span></div>
+        <div class="spec-row"><span class="sk">最大並發</span><span class="sv">依需求動態擴展</span></div>
+        <div class="spec-row"><span class="sk">服務可用率</span><span class="sv">99.9% SLA</span></div>
+        <div class="spec-row"><span class="sk">監控週期</span><span class="sv">每小時批次分析</span></div>
+        <div class="spec-row"><span class="sk">計費模式</span><span class="sv">流量 / 請求數計費</span></div>
+      </div>
+      <div style="margin-top:24px; padding:24px 28px; border:1px solid var(--red-l); background:var(--red-l);">
+        <div style="font-size:11px; letter-spacing:.1em; color:var(--red); margin-bottom:8px;">COST BENEFIT</div>
+        <div style="font-size:28px; font-weight:200; color:var(--ink);">較衛星傳輸<strong style="font-weight:700;">節省 60%</strong></div>
+        <div style="font-size:13px; color:var(--gray); margin-top:6px;">以公網 CDN 取代傳統衛星頻寬</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 02 海外直播 ── -->
+<div class="svc-section" id="live">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">02 · LIVE BROADCAST</div>
+      <div class="svc-s-num fbi">02</div>
+      <div class="svc-s-icon fbi">📡</div>
+      <h2 class="svc-s-title fbi">海外直播<strong>工程</strong></h2>
+      <p class="svc-s-desc fbi">億泓科技提供從現場部署到雲端回傳的完整海外直播工程服務。採用 SRT 低延遲傳輸協議，搭配 4G/5G 異質網路動態綁定備援，確保單線中斷時自動切換，觀眾完全無感知，主線切換時間小於 0.1 秒。</p>
+      <ul class="feat-list">
+        <li><div><strong>SRT 低延遲傳輸協議</strong><span>業界最穩定的直播回傳方案，封包遺失自動修復</span></div></li>
+        <li><div><strong>4G/5G 異質網路備援</strong><span>雙網動態綁定，主線中斷自動切換，切換時間 &lt;0.1 秒</span></div></li>
+        <li><div><strong>OB 車整合服務</strong><span>從採集、混音到編碼輸出，與客戶現有 OB 設備無縫整合</span></div></li>
+        <li><div><strong>現場技術工程師駐場</strong><span>賽事進行中全程技術陪伴，即時排除突發狀況</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">SRT Protocol</span>
+        <span class="tag">4G/5G Bonding</span>
+        <span class="tag">OB 整合</span>
+        <span class="tag">駐場工程師</span>
+        <span class="tag">0.1s 切換</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>技術規格</h4>
+        <div class="spec-row"><span class="sk">傳輸協議</span><span class="sv">SRT (Secure Reliable Transport)</span></div>
+        <div class="spec-row"><span class="sk">備援機制</span><span class="sv">4G/5G 異質網路綁定</span></div>
+        <div class="spec-row"><span class="sk">主線切換時間</span><span class="sv">&lt; 0.1 秒</span></div>
+        <div class="spec-row"><span class="sk">視訊解析度</span><span class="sv">最高 4K UHD 60fps</span></div>
+        <div class="spec-row"><span class="sk">音訊規格</span><span class="sv">AAC / PCM 廣播級</span></div>
+        <div class="spec-row"><span class="sk">服務區域</span><span class="sv">全球主要賽事場館</span></div>
+        <div class="spec-row"><span class="sk">駐場人員</span><span class="sv">依需求配置工程師</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 03 雲端平台 ── -->
+<div class="svc-section" id="cloud">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">03 · CLOUD PLATFORM</div>
+      <div class="svc-s-num fbi">03</div>
+      <div class="svc-s-icon fbi">☁️</div>
+      <h2 class="svc-s-title fbi">雲端影音<strong>平台</strong></h2>
+      <p class="svc-s-desc fbi">億泓自研的無 Flash HLS 播放器，突破瀏覽器限制，在桌機、平板、手機等各類裝置上均可提供一致的高品質播放體驗。後端採用 AWS RDS Multi-AZ 異地備援架構，搭配 Auto Scaling 自動因應瞬間爆量需求。</p>
+      <ul class="feat-list">
+        <li><div><strong>自研 HLS 播放器</strong><span>無需 Flash，純 HTML5 實作，iOS/Android/PC 全覆蓋</span></div></li>
+        <li><div><strong>AWS Multi-AZ 後端架構</strong><span>RDS 異地備援，單區可用區故障自動切換，業務不中斷</span></div></li>
+        <li><div><strong>Auto Scaling 彈性擴展</strong><span>賽事高峰自動擴容，日常低峰縮減，成本最優化</span></div></li>
+        <li><div><strong>即時收視數據分析</strong><span>觀看人數、緩衝率、畫質分佈等關鍵指標即時呈現</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">HLS 播放器</span>
+        <span class="tag">AWS Multi-AZ</span>
+        <span class="tag">Auto Scaling</span>
+        <span class="tag">即時分析</span>
+        <span class="tag">跨平台</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>技術規格</h4>
+        <div class="spec-row"><span class="sk">播放技術</span><span class="sv">自研 HTML5 HLS Player</span></div>
+        <div class="spec-row"><span class="sk">支援平台</span><span class="sv">iOS · Android · PC · SmartTV</span></div>
+        <div class="spec-row"><span class="sk">後端架構</span><span class="sv">AWS RDS Multi-AZ</span></div>
+        <div class="spec-row"><span class="sk">自動擴展</span><span class="sv">AWS Auto Scaling</span></div>
+        <div class="spec-row"><span class="sk">最大並發觀看</span><span class="sv">不限（動態擴展）</span></div>
+        <div class="spec-row"><span class="sk">服務可用率</span><span class="sv">99.9% SLA</span></div>
+        <div class="spec-row"><span class="sk">資料分析</span><span class="sv">每小時批次 + 即時儀表板</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 04 光纖佈線 ── -->
+<div class="svc-section" id="fiber">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">04 · FIBER CABLING</div>
+      <div class="svc-s-num fbi">04</div>
+      <div class="svc-s-icon fbi">🔌</div>
+      <h2 class="svc-s-title fbi">光纖佈線<strong>工程</strong></h2>
+      <p class="svc-s-desc fbi">億泓科技的光纖佈線工程團隊具備廣播級施工經驗，提供從場地勘查評估、線路規劃設計、工程施作到竣工驗收與後續維護保固的完整服務，確保訊號品質穩定可靠。</p>
+      <ul class="feat-list">
+        <li><div><strong>現場勘查與線路規劃</strong><span>工程師實地評估，針對場館特性制定最佳佈線方案</span></div></li>
+        <li><div><strong>廣播級線材與設備選型</strong><span>嚴選符合廣播規格的光纖線材、接頭及配線設備</span></div></li>
+        <li><div><strong>工程施作與測試驗收</strong><span>專業施工團隊，竣工後全面測試，提供驗收報告</span></div></li>
+        <li><div><strong>維護保固服務</strong><span>定期巡檢維護，快速故障響應，保障長期穩定運行</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">單模光纖</span>
+        <span class="tag">多模光纖</span>
+        <span class="tag">廣播級線材</span>
+        <span class="tag">竣工驗收</span>
+        <span class="tag">維護保固</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>服務項目</h4>
+        <div class="spec-row"><span class="sk">前期作業</span><span class="sv">場地勘查 · 需求評估 · 線路設計</span></div>
+        <div class="spec-row"><span class="sk">光纖類型</span><span class="sv">單模 OS2 · 多模 OM3/OM4</span></div>
+        <div class="spec-row"><span class="sk">傳輸標準</span><span class="sv">廣播級 SDI · HD-SDI · 3G-SDI</span></div>
+        <div class="spec-row"><span class="sk">施工範圍</span><span class="sv">演播廳 · 場館 · OB 車停車場</span></div>
+        <div class="spec-row"><span class="sk">驗收標準</span><span class="sv">光損測試 · 反射率量測</span></div>
+        <div class="spec-row"><span class="sk">保固期限</span><span class="sv">依合約，最長 3 年</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 05 設備租賃 ── -->
+<div class="svc-section" id="equip">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">05 · EQUIPMENT RENTAL</div>
+      <div class="svc-s-num fbi">05</div>
+      <div class="svc-s-icon fbi">🖥️</div>
+      <h2 class="svc-s-title fbi">設備租賃<strong>服務</strong></h2>
+      <p class="svc-s-desc fbi">億泓提供廣播級影音設備的短期租賃服務，涵蓋編解碼器、訊號轉換器、OB 整合設備等，並可搭配現場技術工程師支援，按場次或天數彈性計費，有效降低設備採購壓力。</p>
+      <ul class="feat-list">
+        <li><div><strong>廣播級編解碼器</strong><span>支援 H.264/H.265，多格式輸入輸出，符合廣播規格</span></div></li>
+        <li><div><strong>訊號轉換與路由設備</strong><span>SDI↔HDMI 轉換、矩陣切換器、音視訊分配器等</span></div></li>
+        <li><div><strong>OB 整合租賃套組</strong><span>依賽事規模配置完整設備套件，一次出借省去採購煩惱</span></div></li>
+        <li><div><strong>技術工程師隨行服務</strong><span>設備架設、測試、現場操作，全程技術人員陪同</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">編解碼器</span>
+        <span class="tag">SDI 設備</span>
+        <span class="tag">矩陣切換</span>
+        <span class="tag">按場次計費</span>
+        <span class="tag">工程師服務</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>可租賃設備類型</h4>
+        <div class="spec-row"><span class="sk">編碼器</span><span class="sv">硬體 H.264/H.265 廣播級</span></div>
+        <div class="spec-row"><span class="sk">解碼器</span><span class="sv">多格式解碼，SDI/HDMI 輸出</span></div>
+        <div class="spec-row"><span class="sk">訊號轉換</span><span class="sv">SDI↔HDMI · AES/EBU 音訊</span></div>
+        <div class="spec-row"><span class="sk">矩陣切換器</span><span class="sv">4×4 至 16×16 規格</span></div>
+        <div class="spec-row"><span class="sk">網路設備</span><span class="sv">廣播級 IP 路由器</span></div>
+        <div class="spec-row"><span class="sk">計費方式</span><span class="sv">日租 · 週租 · 場次計費</span></div>
+        <div class="spec-row"><span class="sk">附加服務</span><span class="sv">工程師支援（另計）</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 06 系統整合 ── -->
+<div class="svc-section" id="si">
+  <div class="svc-section-inner">
+    <div>
+      <div class="svc-s-label">06 · SYSTEM INTEGRATION</div>
+      <div class="svc-s-num fbi">06</div>
+      <div class="svc-s-icon fbi">🛠️</div>
+      <h2 class="svc-s-title fbi">系統整合<strong>顧問</strong></h2>
+      <p class="svc-s-desc fbi">億泓科技提供完整的廣播系統整合顧問服務，從整體架構規劃、多廠商協調整合，到上線測試驗收與技術培訓，協助媒體業者以最少的整合成本，建立最穩固的播出體系。</p>
+      <ul class="feat-list">
+        <li><div><strong>整體廣播架構規劃</strong><span>依業主播出需求，設計最適切的技術選型與系統架構</span></div></li>
+        <li><div><strong>多廠商整合協調</strong><span>統一窗口管理各設備廠商，降低溝通成本與整合風險</span></div></li>
+        <li><div><strong>系統測試與驗收</strong><span>完整的測試計畫、壓力測試及驗收標準，確保如期上線</span></div></li>
+        <li><div><strong>技術培訓與文件化</strong><span>對操作人員進行技術培訓，並提供完整的技術文件手冊</span></div></li>
+      </ul>
+      <div class="tag-list fbi">
+        <span class="tag">架構規劃</span>
+        <span class="tag">廠商協調</span>
+        <span class="tag">壓力測試</span>
+        <span class="tag">技術培訓</span>
+        <span class="tag">文件化</span>
+      </div>
+    </div>
+    <div class="fbi">
+      <div class="spec-panel">
+        <h4>服務流程</h4>
+        <div class="spec-row"><span class="sk">第一階段</span><span class="sv">需求訪談 · 現況診斷</span></div>
+        <div class="spec-row"><span class="sk">第二階段</span><span class="sv">架構設計 · 廠商評估選型</span></div>
+        <div class="spec-row"><span class="sk">第三階段</span><span class="sv">工程部署 · 設備整合</span></div>
+        <div class="spec-row"><span class="sk">第四階段</span><span class="sv">測試驗收 · 壓力測試</span></div>
+        <div class="spec-row"><span class="sk">第五階段</span><span class="sv">技術培訓 · 文件交付</span></div>
+        <div class="spec-row"><span class="sk">後續支援</span><span class="sv">維運顧問 · 7×24 技術支援</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="svc-cta">
+  <div class="svc-cta-inner">
+    <h2 class="fbi">找到適合的服務了嗎？<br><strong>立即預約諮詢</strong></h2>
+    <p class="fbi">億泓科技的技術顧問將為您評估最適合的廣播影音解決方案，提供客製化報價。</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="fbi">
+      <a href="contact.html" class="btn btn-solid">預約技術諮詢 →</a>
+      <a href="cases.html" class="btn">查看成功案例</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo-icon">億</div>
+        <div class="f-logo-name">億泓科技有限公司</div>
+        <div class="f-logo-desc">Evolve Tech Co., Ltd.<br>廣播級影音傳輸與雲端分發解決方案<br>深耕台灣媒體產業逾十年</div>
+      </div>
+      <div class="f-col">
+        <h4>服務項目</h4>
+        <a href="#cdn">CDN 傳輸服務</a>
+        <a href="#live">海外直播工程</a>
+        <a href="#cloud">雲端影音平台</a>
+        <a href="#fiber">光纖佈線工程</a>
+        <a href="#equip">設備租賃</a>
+        <a href="#si">系統整合顧問</a>
+      </div>
+      <div class="f-col">
+        <h4>關於我們</h4>
+        <a href="about.html">公司介紹</a>
+        <a href="about.html#strengths">核心優勢</a>
+        <a href="about.html#workflow">服務流程</a>
+        <a href="cases.html">成功案例</a>
+      </div>
+      <div class="f-col">
+        <h4>聯絡資訊</h4>
+        <a href="contact.html">聯絡我們</a>
+        <a href="mailto:info@evolvetech.com.tw">info@evolvetech.com.tw</a>
+        <a href="tel:+886227xxxxxx">+886-2-27XX-XXXX</a>
+        <a href="#">台北市信義區XX路X號X樓</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 億泓科技有限公司 Evolve Tech Co., Ltd. All rights reserved.</span>
+      <span>統一編號：XXXXXXXX</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.style.animationDelay = '0s';
+      e.target.classList.add('go');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fbi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

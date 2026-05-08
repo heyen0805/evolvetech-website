@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>億泓科技有限公司 | 廣播級影音傳輸</title>
+  <meta name="description" content="億泓科技提供廣播級 CDN 傳輸、海外直播工程、雲端影音平台及光纖佈線，為媒體產業提供零中斷的專業影音解決方案。" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: calc(var(--nav-h) + 60px) var(--pad-x) 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; width: 100%; }
+
+    .hero-label {
+      font-size: 11px; letter-spacing: .22em; color: var(--gray);
+      display: flex; align-items: center; gap: 14px; margin-bottom: 44px;
+    }
+    .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--lgray); }
+
+    /* clock block */
+    .clock-block {
+      display: flex; align-items: flex-start; gap: 0;
+      margin-bottom: 52px;
+      border: 1px solid var(--border); background: var(--white);
+      width: fit-content;
+    }
+    .clock-half {
+      padding: 24px 36px;
+    }
+    .clock-half + .clock-half { border-left: 1px solid var(--border); }
+    .clock-tag {
+      font-size: 10px; letter-spacing: .18em; color: var(--gray);
+      display: block; margin-bottom: 10px; text-transform: uppercase;
+    }
+    .clock-digits {
+      display: flex; align-items: baseline; gap: 2px;
+      font-size: 44px; font-weight: 200; letter-spacing: -.02em;
+      color: var(--ink); font-variant-numeric: tabular-nums;
+      font-family: 'Helvetica Neue', 'Georgia', serif;
+    }
+    .clock-digits .sep {
+      font-size: 32px; color: var(--lgray); margin: 0 2px;
+      animation: blinkDot 1s step-end infinite;
+    }
+    .clock-digits .unit {
+      font-size: 12px; letter-spacing: .1em; color: var(--gray);
+      margin-left: 4px; font-weight: 400; align-self: flex-end; padding-bottom: 5px;
+    }
+    .clock-red { color: var(--red) !important; }
+
+    /* hero title */
+    .hero-title {
+      font-size: clamp(48px, 7.5vw, 96px);
+      font-weight: 200; letter-spacing: -.035em; line-height: 1.05;
+      margin-bottom: 28px; color: var(--ink);
+    }
+    .hero-title strong { font-weight: 700; }
+
+    .hero-sub {
+      font-size: 16px; color: var(--gray); max-width: 540px;
+      line-height: 1.85; margin-bottom: 40px;
+    }
+    .hero-sub strong { color: var(--ink2); font-weight: 600; }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 72px; }
+
+    .hero-scroll {
+      display: flex; align-items: center; gap: 16px;
+      font-size: 10px; letter-spacing: .2em; color: var(--lgray);
+    }
+    .hero-scroll-line {
+      width: 40px; height: 1px; background: var(--lgray);
+    }
+
+    /* decorative grid line */
+    #hero::before {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
+      opacity: .5;
+    }
+
+    /* ── SERVICE CARDS ── */
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .svc-card {
+      background: var(--bg); padding: 36px 32px 40px;
+      display: flex; flex-direction: column; transition: background .2s;
+    }
+    .svc-card:hover { background: var(--white); }
+    .svc-num {
+      font-size: 11px; letter-spacing: .12em; color: var(--lgray); margin-bottom: 20px;
+    }
+    .svc-icon { font-size: 28px; margin-bottom: 16px; }
+    .svc-card h3 { font-size: 18px; font-weight: 400; margin-bottom: 12px; }
+    .svc-card p  { font-size: 13px; color: var(--gray); line-height: 1.8; flex: 1; }
+    .svc-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; letter-spacing: .06em; color: var(--ink2);
+      margin-top: 24px; border-bottom: 1px solid var(--ink2);
+      padding-bottom: 2px; align-self: flex-start;
+      transition: color .2s, border-color .2s;
+    }
+    .svc-more:hover { color: var(--red); border-color: var(--red); }
+
+    /* ── ABOUT SNIPPET ── */
+    .about-split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-points { list-style: none; margin-top: 32px; }
+    .about-points li {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 20px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+    }
+    .about-points li:first-child { border-top: 1px solid var(--border); }
+    .about-point-num { font-size: 11px; color: var(--lgray); letter-spacing: .1em; flex-shrink: 0; padding-top: 2px; }
+    .about-point-text strong { display: block; font-weight: 600; margin-bottom: 4px; }
+    .about-point-text span { font-size: 13px; color: var(--gray); }
+
+    .about-visual {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 48px 40px; display: flex; flex-direction: column; gap: 28px;
+    }
+    .av-row { display: flex; gap: 20px; align-items: flex-start; }
+    .av-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .av-text strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .av-text span   { font-size: 13px; color: var(--gray); line-height: 1.7; }
+    .av-divider     { height: 1px; background: var(--border); }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--ink); padding: 80px var(--pad-x);
+      text-align: center;
+    }
+    .cta-strip-inner { max-width: var(--max-w); margin: 0 auto; }
+    .cta-strip h2 {
+      font-size: clamp(28px, 4vw, 48px); font-weight: 200;
+      letter-spacing: -.02em; color: rgba(245,244,241,.9); margin-bottom: 16px;
+    }
+    .cta-strip h2 strong { font-weight: 700; }
+    .cta-strip p { font-size: 15px; color: rgba(245,244,241,.45); margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; gap: 40px; }
+      .clock-digits { font-size: 32px; }
+    }
+    @media (max-width: 600px) {
+      .clock-block { flex-direction: column; width: 100%; }
+      .clock-half + .clock-half { border-left: none; border-top: 1px solid var(--border); }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-icon">億</div>
+      <div class="nav-logo-text">
+        <div class="nm">億泓科技</div>
+        <div class="en">Evolve Tech</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">首頁</a>
+      <a href="services.html">服務項目</a>
+      <a href="cases.html">成功案例</a>
+      <a href="about.html">關於億泓</a>
+      <a href="contact.html" class="nav-cta">立即諮詢</a>
+    </div>
+    <button class="nav-ham" id="ham" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="index.html" class="active">首頁</a>
+  <a href="services.html">服務項目</a>
+  <a href="cases.html">成功案例</a>
+  <a href="about.html">關於億泓</a>
+  <a href="contact.html" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- ── HERO ───────────────────────────────── -->
+<section id="hero">
+  <div class="hero-inner">
+
+    <p class="hero-label fbi">廣播級影音傳輸 · 雲端分發架構</p>
+
+    <!-- 台灣標準時間 + 倒數 -->
+    <div class="clock-block fbi">
+      <div class="clock-half">
+        <span class="clock-tag">台灣標準時間 TST &nbsp;UTC+8</span>
+        <div class="clock-digits">
+          <span id="th">00</span><span class="sep">:</span>
+          <span id="tm">00</span><span class="sep">:</span>
+          <span id="ts">00</span>
+        </div>
+      </div>
+      <div class="clock-half">
+        <span class="clock-tag">距今日午夜 · MIDNIGHT COUNTDOWN</span>
+        <div class="clock-digits">
+          <span id="ch" class="clock-red">00</span><span class="sep">:</span>
+          <span id="cm" class="clock-red">00</span><span class="sep">:</span>
+          <span id="cs" class="clock-red">00</span>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="hero-title fbi">
+      訊號不中斷<br>
+      <strong>直播不妥協</strong>
+    </h1>
+
+    <p class="hero-sub fbi">
+      億泓科技深耕廣播媒體產業逾十年，提供
+      <strong>海外直播傳輸、CDN 全球分發、雲端影音平台</strong>
+      及<strong>光纖佈線工程</strong>，以廣播級技術標準保障每一幀畫面穩定到達觀眾眼前。
+    </p>
+
+    <div class="hero-btns fbi">
+      <a href="services.html" class="btn btn-solid">探索服務項目 →</a>
+      <a href="contact.html" class="btn">免費技術諮詢</a>
+    </div>
+
+    <div class="hero-scroll fbi">
+      <div class="hero-scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STATS BAND ─────────────────────────── -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-item fbi">
+      <div class="stat-num"><span data-target="81">0</span><em>+</em></div>
+      <div class="stat-label">全球 CDN 邊緣節點</div>
+    </div>
+    <div class="stat-item fbi">
+      <div class="stat-num"><span data-target="10">0</span><em>+</em></div>
+      <div class="stat-label">年廣播媒體深耕</div>
+    </div>
+    <div class="stat-item fbi">
+      <div class="stat-num"><span data-target="60">0</span><em>%</em></div>
+      <div class="stat-label">傳輸成本較衛星降低</div>
+    </div>
+    <div class="stat-item fbi">
+      <div class="stat-num">99<em>.9%</em></div>
+      <div class="stat-label">服務可用率 SLA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CLIENT MARQUEE ─────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">公共電視</span>
+    <span class="marquee-item">博斯體育</span>
+    <span class="marquee-item">Eleven Sport</span>
+    <span class="marquee-item">八大電視</span>
+    <span class="marquee-item">台灣大哥大</span>
+    <span class="marquee-item">中嘉網路</span>
+    <span class="marquee-item">台固媒體</span>
+    <span class="marquee-item">商業周刊</span>
+    <span class="marquee-item">華電網路</span>
+    <span class="marquee-item">愛爾達體育</span>
+    <span class="marquee-item">緯來體育</span>
+    <span class="marquee-item">民視</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">公共電視</span>
+    <span class="marquee-item">博斯體育</span>
+    <span class="marquee-item">Eleven Sport</span>
+    <span class="marquee-item">八大電視</span>
+    <span class="marquee-item">台灣大哥大</span>
+    <span class="marquee-item">中嘉網路</span>
+    <span class="marquee-item">台固媒體</span>
+    <span class="marquee-item">商業周刊</span>
+    <span class="marquee-item">華電網路</span>
+    <span class="marquee-item">愛爾達體育</span>
+    <span class="marquee-item">緯來體育</span>
+    <span class="marquee-item">民視</span>
+  </div>
+</div>
+
+<!-- ── SERVICE PREVIEW ────────────────────── -->
+<section style="background:var(--bg2); padding:80px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="sec" style="padding-top:0; padding-bottom:0;">
+    <div class="sec-hd">
+      <div class="sec-label fbi">服務項目</div>
+      <h2 class="sec-title fbi">全方位廣播<strong>技術服務</strong></h2>
+      <p class="sec-desc fbi">從訊號採集、傳輸到雲端分發，億泓提供完整的廣播工程一站式服務。</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fbi">
+        <div class="svc-num">01 ─ CDN</div>
+        <div class="svc-icon">🌐</div>
+        <h3>廣播級 CDN 傳輸</h3>
+        <p>Amazon CloudFront 81+ 全球邊緣節點，智慧路由確保最低延遲，支援 HLS / DASH / RTMP 多格式輸出。</p>
+        <a href="services.html#cdn" class="svc-more">了解更多 →</a>
+      </div>
+      <div class="svc-card fbi">
+        <div class="svc-num">02 ─ LIVE</div>
+        <div class="svc-icon">📡</div>
+        <h3>海外直播工程</h3>
+        <p>SRT 低延遲協議搭配 4G/5G 異質網路備援，從現場 OB 車到雲端回傳，零掉格一站式整合。</p>
+        <a href="services.html#live" class="svc-more">了解更多 →</a>
+      </div>
+      <div class="svc-card fbi">
+        <div class="svc-num">03 ─ CLOUD</div>
+        <div class="svc-icon">☁️</div>
+        <h3>雲端影音平台</h3>
+        <p>自研無 Flash HLS 播放器，跨裝置一致體驗。AWS RDS Multi-AZ 後端，Auto Scaling 應對瞬間爆量。</p>
+        <a href="services.html#cloud" class="svc-more">了解更多 →</a>
+      </div>
+      <div class="svc-card fbi">
+        <div class="svc-num">04 ─ FIBER</div>
+        <div class="svc-icon">🔌</div>
+        <h3>光纖佈線工程</h3>
+        <p>廣播級線路規劃與施作，場地勘查評估，高品質線材與設備選型，並提供竣工後維護保固服務。</p>
+        <a href="services.html#fiber" class="svc-more">了解更多 →</a>
+      </div>
+      <div class="svc-card fbi">
+        <div class="svc-num">05 ─ EQUIP</div>
+        <div class="svc-icon">🖥️</div>
+        <h3>設備租賃服務</h3>
+        <p>廣播級編解碼器、訊號轉換器、OB 整合設備出租，附專業技術人員現場支援，按場次彈性計費。</p>
+        <a href="services.html#equip" class="svc-more">了解更多 →</a>
+      </div>
+      <div class="svc-card fbi">
+        <div class="svc-num">06 ─ SI</div>
+        <div class="svc-icon">🛠️</div>
+        <h3>系統整合顧問</h3>
+        <p>整體廣播架構規劃、多廠商協調整合、上線測試驗收及技術培訓，提供完整的端到端工程管理服務。</p>
+        <a href="services.html#si" class="svc-more">了解更多 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT SNIPPET ──────────────────────── -->
+<section>
+  <div class="sec">
+    <div class="about-split">
+      <div>
+        <div class="sec-label fbi">關於億泓</div>
+        <h2 class="sec-title fbi">媒體產業的<br><strong>長期戰略夥伴</strong></h2>
+        <p class="sec-desc fbi" style="margin-bottom:12px;">
+          億泓科技成立於 2011 年，以廣播工程為核心，逐步擴展至雲端影音分發、OTT 平台建設及系統整合顧問，服務台灣主要電視媒體、體育頻道及電信業者。
+        </p>
+        <ul class="about-points">
+          <li class="fbi">
+            <span class="about-point-num">01</span>
+            <div class="about-point-text">
+              <strong>廣播級技術標準</strong>
+              <span>每一環節均符合廣播規格，確保播出品質零妥協。</span>
+            </div>
+          </li>
+          <li class="fbi">
+            <span class="about-point-num">02</span>
+            <div class="about-point-text">
+              <strong>端到端一站式整合</strong>
+              <span>從現場部署、工程施作到雲端分發，單一窗口全程負責。</span>
+            </div>
+          </li>
+          <li class="fbi">
+            <span class="about-point-num">03</span>
+            <div class="about-point-text">
+              <strong>7×24 技術支援</strong>
+              <span>全年無休即時響應，賽事直播關鍵時刻全程陪伴。</span>
+            </div>
+          </li>
+        </ul>
+        <div style="margin-top:36px;" class="fbi">
+          <a href="about.html" class="btn">深入了解我們 →</a>
+        </div>
+      </div>
+      <div class="about-visual fbi">
+        <div class="av-row">
+          <span class="av-icon">🏆</span>
+          <div class="av-text">
+            <strong>連續承接歐冠排球海外直播</strong>
+            <span>3 年 0 中斷紀錄，成為賽事轉播商首選合作夥伴。</span>
+          </div>
+        </div>
+        <div class="av-divider"></div>
+        <div class="av-row">
+          <span class="av-icon">📺</span>
+          <div class="av-text">
+            <strong>公共電視廣播設備整合</strong>
+            <span>主導完整播出系統升級，含編碼器、路由器與監控系統。</span>
+          </div>
+        </div>
+        <div class="av-divider"></div>
+        <div class="av-row">
+          <span class="av-icon">📶</span>
+          <div class="av-text">
+            <strong>台灣大哥大 OTT 串流優化</strong>
+            <span>導入 CDN 智慧分發，傳輸成本降低 60%，畫質提升顯著。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ───────────────────────────── -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2 class="fbi">準備好讓每一場直播<strong>零失誤</strong>了嗎？</h2>
+    <p class="fbi">聯絡億泓科技，由技術顧問為您評估最適合的廣播影音解決方案。</p>
+    <div class="cta-btns fbi">
+      <a href="contact.html" class="btn btn-red">立即預約諮詢</a>
+      <a href="cases.html" class="btn btn-ghost">查看成功案例</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ──────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo-icon">億</div>
+        <div class="f-logo-name">億泓科技有限公司</div>
+        <div class="f-logo-desc">
+          Evolve Tech Co., Ltd.<br>
+          廣播級影音傳輸與雲端分發解決方案<br>
+          深耕台灣媒體產業逾十年
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>服務項目</h4>
+        <a href="services.html#cdn">CDN 傳輸服務</a>
+        <a href="services.html#live">海外直播工程</a>
+        <a href="services.html#cloud">雲端影音平台</a>
+        <a href="services.html#fiber">光纖佈線工程</a>
+        <a href="services.html#equip">設備租賃</a>
+        <a href="services.html#si">系統整合顧問</a>
+      </div>
+      <div class="f-col">
+        <h4>關於我們</h4>
+        <a href="about.html">公司介紹</a>
+        <a href="about.html#strengths">核心優勢</a>
+        <a href="about.html#workflow">服務流程</a>
+        <a href="cases.html">成功案例</a>
+      </div>
+      <div class="f-col">
+        <h4>聯絡資訊</h4>
+        <a href="contact.html">聯絡我們</a>
+        <a href="mailto:info@evolvetech.com.tw">info@evolvetech.com.tw</a>
+        <a href="tel:+886227xxxxxx">+886-2-27XX-XXXX</a>
+        <a href="#">台北市信義區XX路X號X樓</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 億泓科技有限公司 Evolve Tech Co., Ltd. All rights reserved.</span>
+      <span>統一編號：XXXXXXXX</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── Taiwan Standard Time (UTC+8) ── */
+  function getTST() {
+    const now = new Date();
+    return new Date(now.getTime() + now.getTimezoneOffset() * 60000 + 28800000);
+  }
+  function pad2(n) { return String(n).padStart(2, '0'); }
+
+  function tickClock() {
+    const t = getTST();
+    const h = t.getHours(), m = t.getMinutes(), s = t.getSeconds();
+    document.getElementById('th').textContent = pad2(h);
+    document.getElementById('tm').textContent = pad2(m);
+    document.getElementById('ts').textContent = pad2(s);
+    // countdown to midnight
+    const rem = (23 - h) * 3600 + (59 - m) * 60 + (59 - s);
+    document.getElementById('ch').textContent = pad2(Math.floor(rem / 3600));
+    document.getElementById('cm').textContent = pad2(Math.floor((rem % 3600) / 60));
+    document.getElementById('cs').textContent = pad2(rem % 60);
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ── Hamburger ── */
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+  });
+
+  /* ── Scroll reveal + counter ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      // stagger siblings
+      const siblings = el.parentElement.querySelectorAll('.fbi');
+      let delay = 0;
+      siblings.forEach((s, idx) => { if (s === el) delay = idx * 0.08; });
+      el.style.animationDelay = delay + 's';
+      el.classList.add('go');
+      // count-up
+      const num = el.querySelector('[data-target]');
+      if (num) {
+        const target = +num.dataset.target;
+        const dur = 1200;
+        const start = performance.now();
+        function step(now) {
+          const p = Math.min((now - start) / dur, 1);
+          num.textContent = Math.round(p * target);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fbi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
